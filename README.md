@@ -1,6 +1,6 @@
 # PM2 Web Manager 🚀
 
-A light weight web manager for all your PM2 instances
+A light weight web manager for all your PM2 processes
 ---
 
 ## ✨ Features
