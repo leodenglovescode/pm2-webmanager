@@ -33,13 +33,19 @@ npm install
 ```
 
 ### 3. Start the Manager
-You can run it as a regular Node process:
+You can run it directly with **NPX** without even installing:
 ```bash
-npm start
+npx pm2-webmanager
 ```
 Or (Recommended) deploy it as a PM2 service for 24/7 uptime:
 ```bash
 pm2 start server.js --name "pm2-webmanager" && pm2 save
+```
+
+Or install it globally and use the command:
+```bash
+npm install -g pm2-webmanager
+pm2-webmanager
 ```
 
 ---

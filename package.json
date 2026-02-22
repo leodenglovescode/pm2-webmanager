@@ -1,7 +1,12 @@
 {
   "name": "pm2-webmanager",
   "version": "1.0.0",
+  "description": "A secure web interface for PM2 with authentication and live logs.",
   "main": "server.js",
+  "bin": {
+    "pm2-webmanager": "server.js"
+  },
+  "preferGlobal": true,
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"

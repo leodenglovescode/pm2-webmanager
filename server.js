@@ -1,8 +1,10 @@
+#!/usr/bin/env node
 const express = require('express');
 const pm2 = require('pm2');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 const { exec } = require('child_process');
 const session = require('express-session');
 const SQLiteStore = require('connect-sqlite3')(session);
@@ -14,12 +16,17 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3434;
-const AUTH_FILE = path.join(__dirname, 'auth.json');
+
+// Dedicated config directory in user's home (essential for NPX/Global install)
+const CONFIG_DIR = path.join(os.homedir(), '.pm2-webmanager');
+if (!fs.existsSync(CONFIG_DIR)) fs.mkdirSync(CONFIG_DIR, { recursive: true });
+
+const AUTH_FILE = path.join(CONFIG_DIR, 'auth.json');
 const SESSION_SECRET = process.env.SESSION_SECRET || 'pm2-secret-key-123456789';
 
-// Persistent SQLite session store
+// Persistent SQLite session store (stored in home dir)
 app.use(session({
-    store: new SQLiteStore({ db: 'sessions.sqlite', dir: __dirname }),
+    store: new SQLiteStore({ db: 'sessions.sqlite', dir: CONFIG_DIR }),
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
