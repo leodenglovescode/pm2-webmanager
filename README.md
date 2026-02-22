@@ -1,7 +1,12 @@
-# PM2 Web Manager 🚀
+# PM2 Web Manager 🚀 
 
-A light weight web manager for all your PM2 processes
+### A light weight web manager for all your PM2 processes
 ---
+
+### Screenshots in site:
+<br>
+<img width="720" height="389" alt="Screen Shot 2026-02-22 at 20 23 09" src="https://github.com/user-attachments/assets/8d4dd2d3-8a8b-4f6c-b477-741cdcb492cc" />
+
 
 ## ✨ Features
 - **🔒 High Security**: Password hashing with Argon2id.
